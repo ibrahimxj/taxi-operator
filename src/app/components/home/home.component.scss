@@ -1,0 +1,19 @@
+.space {
+    flex: 1 1 auto;
+  }
+  .container{
+    margin: 0 auto;
+    max-width: 400px;
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+  }
+  a{
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 15px;
+  }
+  
+  

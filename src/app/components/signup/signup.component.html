@@ -1,0 +1,66 @@
+<div class="sign-container">
+  <div class="sign-content">
+    <h1>{{'register'|translate}}</h1>
+    <mat-card>
+
+      <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <mat-form-field>
+          <mat-icon matPrefix>email</mat-icon>
+          <input autofocus type="email" matInput placeholder="{{'email'|translate}}" formControlName="email">
+		  <mat-error *ngIf="email?.errors?.['required']">
+        {{'emailv'|translate}}
+			</mat-error>
+			<mat-error *ngIf="email?.errors?.['email']">
+				{{'emailv1'|translate}}
+				</mat-error>
+
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input autofocus type="text" matInput placeholder="{{'username'|translate}}" formControlName="username">
+		  <mat-error *ngIf="username?.errors?.['required']">
+        {{'usernamev'|translate}}
+		  </mat-error>
+		
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input type="password" autocomplete="false" matInput placeholder=" {{'password'|translate}}" formControlName="password">
+          <mat-hint>{{'passwordh'|translate}}</mat-hint>
+		  <mat-error *ngIf="password?.errors?.['required']">
+        {{'passwordv'|translate}}
+		  </mat-error>
+		
+        </mat-form-field>
+        <div class="cap">
+          <div  *ngIf=" id=='en'  ">
+            <ngx-recaptcha2  #captchaElem
+            [siteKey]="sitekey"
+            hl="en"
+            formControlName="recaptcha">
+          </ngx-recaptcha2>
+        </div>
+        <div  *ngIf=" id=='ar' ">
+          <ngx-recaptcha2  #captchaElem
+          [siteKey]="sitekey"
+          hl="ar"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+      </div>
+
+        </div>
+        
+
+        <div class="submitBtn">
+          
+          <button [disabled]="!signupForm.valid" class="submit " style="width:50%" type="submit" mat-raised-button color="primary">{{'submit'|translate}}</button>
+        </div>
+      </form>
+      <span>{{'registerv'|translate}} <a routerLink="/login">{{'login'|translate}}</a></span>
+    </mat-card>
+  </div>
+</div>

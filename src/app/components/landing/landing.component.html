@@ -1,0 +1,36 @@
+ <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span >{{'title'|translate}}</span>
+    <span class="space"></span>
+    <button mat-icon-button (click)="Switch()"><mat-icon>g_translate</mat-icon></button>
+    <button mat-icon-button class="menu-icon" [matMenuTriggerFor]="menu" aria-label=" menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="login">
+        <mat-icon>login</mat-icon>
+        <span>{{'login'|translate}}</span>
+      </button>
+      <button mat-menu-item routerLink="signUp">
+        <mat-icon>person_add</mat-icon>
+        <span>{{'signUp'|translate}}</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <mat-card class="center">
+    <img mat-card-image src="../../assets/hey taxi logo.png" alt="Taxi image">
+    <mat-card-content>
+      <p>
+       {{'card-content'|translate}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button> {{'share'|translate}}</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+

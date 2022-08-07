@@ -1,0 +1,43 @@
+<div class="body"><mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>{{'title'|translate}}</span>
+      <div class="search-bar">
+        <input type="text" name="search" [(ngModel)]="searchText" placeholder="{{'search'|translate}}">
+    </div>
+    
+      <span class="space"></span>
+      <ng-container>
+        <button mat-button [matMenuTriggerFor]="menu" >
+          <mat-icon>account_circle</mat-icon>
+          {{username}}
+          <mat-icon>expand_more</mat-icon>
+         </button>
+      </ng-container>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>{{'logout'|translate}}</span>
+        </button>
+        
+      </mat-menu>
+    </mat-toolbar-row>
+    </mat-toolbar>
+
+        
+  
+    <div class="list-title">
+        <h1>{{'cablist'|translate}}</h1>
+        <button mat-mini-fab color="primary" (click)="goback()">
+            <mat-icon>home</mat-icon>
+           </button>
+    </div>
+
+
+<ul class="List" *ngIf="cabs">
+    <li class="Item" *ngFor="let cab of cabs | filter:searchText">
+        <p> {{'owner'|translate}} : {{  cab.owner }}</p>
+        <p> {{'model'|translate}} : {{  cab.model}}</p>
+        <p> {{'number'|translate}} : {{  cab.number}}</p>
+    </li>
+</ul>
+</div>  

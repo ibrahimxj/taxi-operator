@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>{{'title'|translate}}</span>
+      <span class="space"></span>
+      <button mat-icon-button (click)="Switch()"><mat-icon>g_translate</mat-icon></button>
+      <ng-container>
+        <button mat-button [matMenuTriggerFor]="menu" >
+          <mat-icon>account_circle</mat-icon>
+          {{username}}
+          <mat-icon>expand_more</mat-icon>
+         </button>
+      </ng-container>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>{{'logout'|translate}}</span>
+        </button>
+        
+      </mat-menu>
+    </mat-toolbar-row>
+    </mat-toolbar>
+<div class="container">
+    <h1>{{'homet'|translate}}</h1>
+    <p>{{'homea'|translate}}</p>
+    <div class="con">
+        <a mat-raised-button color="primary" href="#" routerLink="/users">{{'userbtn'|translate}}</a>
+    <a  mat-raised-button color="primary" href="#" routerLink="/cabs">{{'cabbtn'|translate}}</a>
+    </div>
+</div>

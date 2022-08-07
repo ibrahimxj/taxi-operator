@@ -1,0 +1,52 @@
+<mat-card class="center">
+
+
+
+  <mat-card-title> {{'login'|translate}}</mat-card-title>
+  <mat-card-content>
+    <form  [formGroup]="loginform" (ngSubmit)="login()" >
+      <mat-form-field>
+        <mat-icon matPrefix>person_outline</mat-icon>
+        <input formControlName="email" autofocus type="text" matInput placeholder="{{'email'|translate}}">
+        <mat-error *ngIf="email?.errors?.['required']">
+          {{'emailv'|translate}}
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          {{'emailv1'|translate}}
+          </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+     
+        <mat-icon matPrefix>lock_outline</mat-icon>
+        <input formControlName="password" type="password" autocomplete="false" matInput placeholder="{{'password'|translate}}">
+        <mat-error *ngIf="password?.errors?.['required']">
+          {{'passwordv'|translate}}
+        </mat-error>
+       
+      </mat-form-field>
+      <div  *ngIf=" id=='en'  ">
+      <ngx-recaptcha2  #captchaElem
+      [siteKey]="sitekey"
+      hl="en"
+      formControlName="recaptcha">
+    </ngx-recaptcha2>
+  </div>
+  <div  *ngIf=" id=='ar' ">
+    <ngx-recaptcha2  #captchaElem
+    [siteKey]="sitekey"
+    hl="ar"
+    formControlName="recaptcha">
+  </ngx-recaptcha2>
+</div>
+    
+ 
+      <button [disabled]="!loginform.valid" type="submit" mat-raised-button color="primary">{{'login'|translate}}</button>
+    </form>
+   
+
+    
+  </mat-card-content>
+ 
+  <span >{{'new'|translate}} <a  routerLink="/signUp">{{'signup2'|translate}}</a></span>
+</mat-card>
